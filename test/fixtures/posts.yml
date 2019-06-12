@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  when: MyString
+  tenki: MyString
+  date: MyString
+  max: 1
+  min: 1
+  image_url: MyText
+
+two:
+  when: MyString
+  tenki: MyString
+  date: MyString
+  max: 1
+  min: 1
+  image_url: MyText

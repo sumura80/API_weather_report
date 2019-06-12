@@ -1,0 +1,47 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :when %>
+    <%= form.text_field :when, id: :post_when %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tenki %>
+    <%= form.text_field :tenki, id: :post_tenki %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.text_field :date, id: :post_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :max %>
+    <%= form.number_field :max, id: :post_max %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min %>
+    <%= form.number_field :min, id: :post_min %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.text_area :image_url, id: :post_image_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

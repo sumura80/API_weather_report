@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>埼玉県の天気</h1>
+  <div class="filter">
+    <%= form_tag posts_path,method: :get do %>
+      <%= label_tag :when %>
+      <%= select_tag :when, options_for_select(["今日", "明日", "明後日"] ),  :prompt => "選択してください",class:"dropdown" %>
+
+      <%= submit_tag "search", name: nil,class:"btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <table class="table table-striped  table-condensed">
+    <thead>
+      <tr>
+        <th></th>
+        <th>天気</th>
+        <th>日付</th>
+        <th>最高気温</th>
+        <th>最低気温</th>
+        <th>天候</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each do |post| %>
+        <tr>
+          <td><%= post.when %></td>
+          <td><%= post.tenki %></td>
+          <td><%= (DateTime.parse(post.date)).strftime('%Y年%m月%d日') %></td>
+          <td><%= post.max %></td>
+          <td><%= post.min %></td>
+          <td><img src = <%= post.image_url%> ></td>
+         <!-- <td><%= link_to 'Show', post %></td> -->
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <!--<%= link_to 'New Post', new_post_path %> -->
+</div>
